@@ -3,52 +3,48 @@ using System.Collections.Generic;
 
 namespace FirstApp.Entities
 {
-    public class BaseCrew
+    public interface BaseCrew
     {
-        public String CrewId
+        String CrewId
         {
             get;
             set;
         }
 
-        public String CrewEmail
+        String CrewEmail
         {
             get;
             set;
         }
 
-        public String CrewPhoneNumber
+        String CrewPhoneNumber
         {
             get;
             set;
         }
 
-        public String CrewExtension
+        String CrewExtension
         {
             get;
             set;
         }
 
-        public String FirstName
+        String FirstName
         {
             get;
             set;
         }
 
-        public String LastName
+        String LastName
         {
             get;
             set;
         }
 
-        public List<int> OnCallDays
+        List<int> OnCallDays
         {
             get;
             set;
-        }
-
-        public BaseCrew()
-        {
         }
     }
 }

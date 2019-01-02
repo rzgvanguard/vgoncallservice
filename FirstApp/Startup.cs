@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json.Serialization;
 
 namespace TestApp2
 {
@@ -26,6 +27,8 @@ namespace TestApp2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+
             services.AddCors(p => p.AddPolicy(
                 "UIPolicy", builder => 
                 {
@@ -50,6 +53,7 @@ namespace TestApp2
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
             app.UseCors("UIPolicy");
         }
     }
